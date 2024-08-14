@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class EntradaCartaoCredito {
 
-    public static void processarPagamento(String tipoCartao) { // Tornando o método público e estático
+    public static void processarPagamento(String tipoCartao) {
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
         System.out.println("Informe o valor da transação: ");
@@ -25,7 +25,7 @@ public class EntradaCartaoCredito {
                     return;
                 }
 
-                double taxaJuros = 0.04; // Taxa de juros de 4%
+                double taxaJuros = 0.04;
                 double valorParcelado;
 
                 if (parcelas <= 3) {
