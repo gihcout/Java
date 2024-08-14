@@ -28,12 +28,22 @@ public class ContaTerminal {
 
         double saldo = 237.48;
 
-        if (option.equals("sim"))
-            System.out.println("Sua agência é " + agencia + ", conta " + conta + " e seu saldo " + saldo + " já está disponível para saque");
-        else if (option.equals("não"))
-            System.out.println("Estamos encerrando o acesso! Volte sempre!");
-        else 
-            System.out.println("Resposta não identificada. Acessa a conta novamente caso necessário");
+        if (option.equalsIgnoreCase("sim")) {
+            System.out.println("Sua agência é " + agencia + ", conta " + conta + " e seu saldo " + saldo + " já está disponível para saque.");
+            System.out.println("Deseja realizar um saque? (sim/não)");
+            String saqueOption = scanner.next();
 
+            if (saqueOption.equalsIgnoreCase("sim")) {
+                CaixaEletronico.realizarSaque(saldo);
+            } else {
+                System.out.println("Estamos encerrando o acesso! Volte sempre!");
+            }
+        } else if (option.equalsIgnoreCase("não")) {
+            System.out.println("Estamos encerrando o acesso! Volte sempre!");
+        } else {
+            System.out.println("Resposta não identificada. Acesse a conta novamente caso necessário.");
+        }
+
+        scanner.close();
     }
 }
